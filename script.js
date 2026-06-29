@@ -1,7 +1,18 @@
+let btn = document.querySelectorAll('button')
+
+btn.forEach((button) => {
+  button.addEventListener('click', () =>{
+    humanChoice = button.textContent;
+    computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice)
+  })
+})
+
+
+
 function getComputerChoice(){
   //generate random number between 0 1 2
   let randomNumber = Math.floor(Math.random() * 3)
-
   //the choice made by the computer
   if (randomNumber === 0) {
     return "rock";
@@ -13,14 +24,7 @@ function getComputerChoice(){
     return "scissors";
   }
 }
- console.log(getComputerChoice())
 
-//this get the human choice
-function getHumanChoice(){
-  let choice = prompt("What your choice?")
-  let cleanChoice = choice.toLowerCase().trim()
-  console.log(cleanChoice)
-}
 
 //this check who won
  function playgame(){
@@ -29,14 +33,14 @@ function getHumanChoice(){
   
   function playRound(humanChoice, computerChoice){
   //checks for tie
-   if (getComputerChoice === getHumanChoice){
+   if (computerChoice === humanChoice){
     console.log(`it's a tie! both chose ${humanChoice}`)
    }
    //human wins
    else if (
-    (getHumanChoice === "rock" && getComputerChoice === "scissors") ||
-    (getHumanChoice === "paper" && getComputerChoice === "rock") ||
-    (getHumanChoice === "scissors" && getComputerChoice === "paper")
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
    ){
     humanScore++;
     console.log(`you win! ${humanChoice} beats ${computerChoice}`)
@@ -47,7 +51,7 @@ function getHumanChoice(){
    }
    
   }
-   for (i = 1; i <= 5; i++){
+   /*for (let i = 1; i <= 5; i++){
     console.log(`--- Round ${i} ---`);
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
@@ -64,7 +68,9 @@ function getHumanChoice(){
     }
     else {
       console.log("Stalemate")
-    }
+    }*/
   }
+
+  playgame();
  
  
