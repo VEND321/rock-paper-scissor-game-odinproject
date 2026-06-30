@@ -1,15 +1,3 @@
-let btn = document.querySelectorAll('button')
-
-btn.forEach((button) => {
-  button.addEventListener('click', () =>{
-    humanChoice = button.textContent;
-    computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice)
-  })
-})
-
-
-
 function getComputerChoice(){
   //generate random number between 0 1 2
   let randomNumber = Math.floor(Math.random() * 3)
@@ -70,7 +58,18 @@ function getComputerChoice(){
       console.log("Stalemate")
     }*/
   }
-
   playgame();
+
+  let btn = document.querySelectorAll('button')
+
+btn.forEach((button) => {
+  button.addEventListener('click', () => {
+    humanChoice = button.textContent;
+    computerChoice = getComputerChoice();
+    //playRound(humanChoice, computerChoice);
+   
+  });
+});
+ console.log(humanChoice)
  
  
